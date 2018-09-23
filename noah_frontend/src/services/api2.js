@@ -2,21 +2,22 @@ import axios from 'axios'
 
 import {setConstantChoices} from '../actions/choices'
 
-export class APIService {
+export class APIService2 {
     constructor(dispatch) {
         this.dispatch = dispatch
     }
 
     static get baseUrl() {
-        return `/api/v1/`
+        return `/api/v2/`
     }
 
     get server() {
         const request = axios.create({
-            baseURL: APIService.baseUrl,
+            baseURL: APIService2.baseUrl,
             method: "post",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Origin': '*'
             }
         })
         request.interceptors.response.use(
@@ -58,5 +59,35 @@ export class APIService {
                 push('/how-to-donate')
             })
             .catch(err => {})
+    }
+    getDonorInfoByPhoneNumber(phoneNumber){
+        return this.server.get("donations/?phone="+phoneNumber)
+        .then(resp => {
+            // this.dispatch(getDonorInfo(resp.data))
+            return resp.data
+        })
+        .catch(err => {})
+
+    }
+
+    updateDonorItemStatus(statusId,donationId){
+        return this.server.get("updateDonorItemStatus/"+donationId+"/"+statusId)
+        .then(resp => {
+            // this.dispatch(getDonorInfo(resp.data))
+            return resp.data
+        })
+        .catch(err => {})
+
+
+    }
+
+    addNewItemForDonor(donorId,itemName,statusId){
+
+        return this.server.get("donations/",donorId,itemName,statusId)
+        .then(resp => {
+            this.dispatch(this.addNewItemForDonor(resp.data))
+        })
+        .catch(err => {}
+        )
     }
 }

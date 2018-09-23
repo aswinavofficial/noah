@@ -20,3 +20,16 @@ export const setSelectedState = (state) => {
         state
     }
 }
+// export const getDonorInfo = (state) => {
+//     return {
+//         type: types.CHOICES_SET_DONOR_INFO,
+//         values
+//     }
+// }
+
+// export const addNewItemForDonor = (state) => {
+//     return {
+//         type: types.CHOICES_ADD_NEW_ITEM_FOR_DONOR,
+//         values
+//     }
+// }

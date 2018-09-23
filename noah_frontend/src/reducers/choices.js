@@ -35,6 +35,34 @@ const selectedState = (state, action) => {
     }
 }
 
+// const donorInfo = (state, action) => {
+//     switch(action.type) {
+//         case types.CHOICES_SET_DONOR_INFO:
+//         return action.values
+
+//         default:
+//             return state || {
+//                 districts: {},
+//                 items: [],
+//                 states: []
+//             }
+//     }
+// }
+
+// const addItemForDonor = (state, action) => {
+//     switch(action.type) {
+//         case types.CHOICES_ADD_NEW_ITEM_FOR_DONOR:
+//         return action.values
+
+//         default:
+//             return state || {
+//                 districts: {},
+//                 items: [],
+//                 states: []
+//             }
+//     }
+// }
+
 export default combineReducers({
     constants,
     customItems,

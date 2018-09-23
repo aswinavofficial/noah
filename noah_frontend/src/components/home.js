@@ -5,6 +5,7 @@ import HeaderView from './header'
 import HelpView from './help'
 import AboutView from './about'
 import PartnerView from './partners'
+import CollectionHubAdmin from './collectionHubAdmin'
 
 class HomeView extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class HomeView extends React.Component {
                 <DonateView />
                 <AboutView />
                 <HelpView />
+                <CollectionHubAdmin />
             </React.Fragment>
         )
     }

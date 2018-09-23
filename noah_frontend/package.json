@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    
     "dev": "./node_modules/webpack/bin/webpack.js --mode=development --env.ENV=development --watch",
     "prod": "./node_modules/webpack/bin/webpack.js --mode=production --env.ENV=production"
   },
